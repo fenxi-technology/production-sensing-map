@@ -5,6 +5,7 @@ services:
         build: .
         ports:
           - "51100:80"
+        restart: always
         environment:
             - VIRTUAL_HOST=sensor-map.jit-systems.de # example jitcloud.de
             - LETSENCRYPT_HOST=sensor-map.jit-systems.de # should be the same as VIRTUAL_HOST
