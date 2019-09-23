@@ -13,13 +13,14 @@ RUN date && apk del tzdata
 
 # Copy Node.js App dependency manifest
 COPY package.json ./package.json
+COPY package-lock.json ./package-lock.json
 # Install Node.js dependencies
 RUN npm install
 # RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 # Copy our app from the hard drive to the working direcotry in the docker image
 COPY ./ ./
 # Build the App inside the image
-RUN npm run build --prod
+RUN npm run build 
 
 ##################
 # Production Build
